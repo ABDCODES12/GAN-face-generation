@@ -1,0 +1,72 @@
+# ==================== TRANSFER LEARNING CONFIG ====================
+# Configuration for transfer learning on mask dataset
+# ⚠️ Update paths below with YOUR actual paths
+
+# Dataset Configuration
+dataset:
+  name: "mask"
+  # ⬇⬇⬇ UPDATE THIS PATH TO YOUR MASK DATASET ⬇⬇⬇
+  path: "/path/to/your/mask/without_mask/"
+  # Example: "data/mask/without_mask/"
+  
+  image_size: 64
+  limit: null               # Use all images
+  
+  # Data augmentation (more for smaller dataset)
+  augmentation: true
+  random_flip: true
+  color_jitter: 0.1
+  rotation: 5               # Degrees
+
+# Model Configuration
+model:
+  latent_size: 256
+  spectral_norm: true       # Use spectral norm for stability
+  dropout: 0.0
+  
+  # Transfer learning settings
+  freeze_layers: 0          # Number of layers to freeze (0 = fine-tune all)
+  load_pretrained: true     # Load pre-trained weights
+
+# Training Configuration (Different from CelebA)
+training:
+  epochs: 40                # Fewer epochs for transfer learning
+  batch_size: 128
+  lr_d: 0.0001              # Lower learning rates
+  lr_g: 0.0001
+  beta1: 0.5
+  beta2: 0.999
+  
+  # Pre-trained model paths
+  pretrained_generator: "checkpoints/celeba/G_final.pth"
+  pretrained_discriminator: "checkpoints/celeba/D_final.pth"
+  
+  # Transfer learning specific
+  fine_tune: true
+  warmup_epochs: 5          # Slowly increase learning rate
+  
+  # Scheduler
+  scheduler: "cosine"
+  t_max: 40
+  eta_min: 1e-6
+
+# Logging & Output
+logging:
+  save_dir: "checkpoints/transfer"
+  sample_dir: "samples/transfer"
+  log_dir: "logs/transfer"
+  
+  save_every: 10
+  sample_every: 1
+  log_every: 100
+  
+  tensorboard: true
+  wandb: false
+  wandb_project: "face-gan-transfer"
+
+# Hardware
+hardware:
+  device: "cuda"
+  num_workers: 4
+  pin_memory: true
+  mixed_precision: false

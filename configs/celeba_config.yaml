@@ -1,0 +1,81 @@
+# ==================== CELEBA GAN CONFIGURATION ====================
+# Configuration file for CelebA face generation training
+# ⚠️ Update the dataset path below with YOUR actual path
+
+# Dataset Configuration
+dataset:
+  name: "celeba"
+  # ⬇⬇⬇ UPDATE THIS PATH TO YOUR CELEBA DATASET ⬇⬇⬇
+  path: "/path/to/your/celeba/img_align_celeba/"
+  # Example Windows: "C:/Users/username/data/celeba/img_align_celeba/"
+  # Example Linux/Mac: "/home/username/data/celeba/img_align_celeba/"
+  
+  image_size: 64
+  # Set to number for testing (e.g., 1000), null for full dataset
+  limit: null
+  
+  # Data augmentation
+  augmentation: false
+  random_flip: true
+  color_jitter: 0.05
+
+# Model Architecture
+model:
+  latent_size: 256          # Size of noise vector
+  spectral_norm: false      # Use spectral normalization
+  dropout: 0.0             # Dropout rate
+  
+  # Generator architecture
+  generator:
+    channels: [512, 256, 128, 64]  # Channel progression
+    kernel_size: 4
+    stride: 2
+    padding: 1
+    
+  # Discriminator architecture  
+  discriminator:
+    channels: [64, 128, 256, 512]  # Channel progression
+    kernel_size: 4
+    stride: 2
+    padding: 1
+
+# Training Configuration
+training:
+  epochs: 60                # Total training epochs
+  batch_size: 128           # Batch size
+  lr_d: 0.0002              # Discriminator learning rate
+  lr_g: 0.0002              # Generator learning rate
+  beta1: 0.5                # Adam beta1
+  beta2: 0.999              # Adam beta2
+  
+  # Gradient penalties (optional)
+  gradient_penalty: false
+  lambda_gp: 10.0
+  
+  # Learning rate scheduler
+  scheduler: "cosine"
+  t_max: 60
+  eta_min: 1e-6
+
+# Logging & Output
+logging:
+  save_dir: "checkpoints/celeba"    # Model checkpoints
+  sample_dir: "samples/celeba"      # Generated samples
+  log_dir: "logs/celeba"           # TensorBoard logs
+  
+  # Frequency
+  save_every: 10            # Save checkpoint every N epochs
+  sample_every: 1           # Generate samples every N epochs
+  log_every: 100            # Log metrics every N batches
+  
+  # Visualization
+  tensorboard: true
+  wandb: false              # Weights & Biases integration
+  wandb_project: "face-gan"
+
+# Hardware
+hardware:
+  device: "cuda"            # "cuda" or "cpu"
+  num_workers: 4            # DataLoader workers
+  pin_memory: true
+  mixed_precision: false    # Use mixed precision training
