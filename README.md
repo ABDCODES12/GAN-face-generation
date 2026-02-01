@@ -77,6 +77,7 @@ Transfer Learning: 40 epochs, 5K images, 33% faster convergence
 Output: 64x64 RGB faces with smooth latent space interpolation
 ## Sample Outputs:
 Example generated faces after training
+
 Epoch 1:
 <img width="530" height="530" alt="generated-images-0001 (1)" src="https://github.com/user-attachments/assets/8cb1fe7f-648d-470e-80ee-c12a5cabb6fa" />
 
