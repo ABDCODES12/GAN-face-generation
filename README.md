@@ -73,16 +73,30 @@ dataset:
 ## 📈 Results
 Training Metrics:
 CelebA: 60 epochs, 200K+ images, realistic face generation
+Transfer Learning: 40 epochs, 5K images, 33% faster convergence
+Output: 64x64 RGB faces with smooth latent space interpolation
+## Sample Outputs:
+Example generated faces after training
+Epoch 1:
 <img width="530" height="530" alt="generated-images-0001 (1)" src="https://github.com/user-attachments/assets/8cb1fe7f-648d-470e-80ee-c12a5cabb6fa" />
 
+Epoch 5:
+<img width="530" height="530" alt="generated-images-0005 (1) (1)" src="https://github.com/user-attachments/assets/8760c882-d978-4428-b3ef-1442598365a7" />
 
-Transfer Learning: 40 epochs, 5K images, 33% faster convergence
+Epoch 40:
+<img width="530" height="530" alt="generated-images-0040 (1)" src="https://github.com/user-attachments/assets/7e75b676-b83a-4e0f-bedf-549172cd2249" />
 
-Output: 64x64 RGB faces with smooth latent space interpolation
+Epoch 60 (Last Epoch Trained On CelebA dataset):
+<img width="530" height="530" alt="generated-images-0060 (1)" src="https://github.com/user-attachments/assets/38e305ed-6529-4dcd-abbf-7ee0338b4e5d" />
 
-## Sample Outputs:
-https://samples/sample_grid.png
-Example generated faces after training
+Epoch 65 (After FakeFaces):
+<img width="530" height="530" alt="transfer-generated-0005 (1)" src="https://github.com/user-attachments/assets/3ef4f791-c526-4be1-8db6-ab8418749b3e" />
+
+Epoch 70:
+<img width="530" height="530" alt="transfer-generated-0019 (1)" src="https://github.com/user-attachments/assets/91cd27af-2224-43e4-b52b-33a69801ac24" />
+
+
+
 
 
 📄 License
