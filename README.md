@@ -73,6 +73,8 @@ dataset:
 ## 📈 Results
 Training Metrics:
 CelebA: 60 epochs, 200K+ images, realistic face generation
+<img width="530" height="530" alt="generated-images-0001 (1)" src="https://github.com/user-attachments/assets/8cb1fe7f-648d-470e-80ee-c12a5cabb6fa" />
+
 
 Transfer Learning: 40 epochs, 5K images, 33% faster convergence
 
