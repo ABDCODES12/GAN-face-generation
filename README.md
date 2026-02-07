@@ -29,10 +29,10 @@ A complete PyTorch implementation of DCGAN for celebrity face generation, adapte
 
 ## 📊 Full Training (With Datasets)
 # 1. Download datasets (see instructions above)
-# 2. DOWNLOAD AND EXTRACT:
+# 2. Download & Extract:
     - Download CelebA, extract ALL images to data/celeba/img_align_celeba/
     - Download Face Mask, extract without_mask/ to data/mask/
-# 3. CREATE THE DATA FOLDER STRUCTURE:
+# 3. Create the data folder structure:
 ```bash
 mkdir -p data/celeba/img_align_celeba
 mkdir -p data/mask/without_mask
